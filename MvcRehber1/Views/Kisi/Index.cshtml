@@ -1,0 +1,112 @@
+﻿
+@model MvcRehber1.Models.KisiModel.KisiIndexViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<style>
+
+    .basliklar {
+        font-family: Constantia;
+        font-size: 20px;
+        color: brown;
+    }
+
+    .icerik {
+        font-family: 'Lucida Sans Unicode';
+        font-size: 14px;
+    }
+
+    .btn {
+        background-color: brown;
+    }
+
+
+    .baslik {
+        font-family: 'Global Sans Serif';
+        font-size: 70px;
+        text-align: center;
+        text-shadow: inherit;
+        font-style: italic
+    }
+
+    .girisyapilmadi {
+        text-align: center;
+        font-family: 'Global Sans Serif';
+        font-size: 30px;
+        color: brown;
+    }
+</style>
+
+@foreach (var kullanicilar in Model.Kullanicilar.ToList())
+{
+   
+        <h2 class="baslik">Rehber</h2>
+
+        <table class="table">
+
+            <tr class="basliklar">
+
+                <th>Ad</th>
+                <th>Soyad</th>
+
+                <th>Cep Telefonu</th>
+
+                <th>Email</th>
+
+                <th>Şehir</th>
+                <th>İşlemler</th>
+
+            </tr>
+
+            @foreach (var kisi in Model.Kisiler)
+            {
+
+                <tr class="icerik">
+                    <td>@kisi.Ad</td>
+                    <td>@kisi.Soyad</td>
+
+                    <td>@kisi.CepTelefon</td>
+
+                    <td>@kisi.Email</td>
+
+                    <td>@kisi.Sehir.SehirAdi</td>
+                    <td>
+                        @*<a href="/Kisi/Guncelle/@kisi.Id">Guncelle</a>*@
+                        @Html.ActionLink("Güncelle", "Guncelle", new { id = kisi.Id }) |
+                        @Html.ActionLink("Detay", "Detay", new { id = kisi.Id }) |
+                        @Html.ActionLink("Sil", "Sil", new { id = kisi.Id }, new { onclick = "return confirm('Kaydı silmek istediğinize emin misinizi?');" })
+
+                    </td>
+
+                </tr>
+            }
+
+
+
+        </table>
+
+
+
+        <br />
+        <br />
+
+
+        @Html.ActionLink("Yeni Kişi", "Ekle", null, new { @class = "btn btn-primary background-color: brown;" })
+
+        break;
+    }
+
+
+
+    @if (Session["UsernameSS"] == null){
+    
+<a class="girisyapilmadi" href="~/Kullanici/GirisYap">Lütfen giriş yapınız!</a>
+
+
+}

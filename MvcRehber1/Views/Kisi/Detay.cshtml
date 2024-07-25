@@ -1,0 +1,57 @@
+﻿@model MvcRehber1.Models.KisiModel.KisiDetayViewModel
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Kisi.Ad  @Model.Kisi.Soyad  Bilgileri</h2>
+
+
+<hr />
+
+
+
+<dl class="dl-horizontal">
+
+    <dt>
+        @Html.DisplayNameFor(x => x.Kisi.EvTelefon)
+    <dd>@Model.Kisi.EvTelefon</dd>
+    </dt>
+
+
+    <dt>
+        @Html.DisplayNameFor(x => x.Kisi.CepTelefon)
+    <dd>@Model.Kisi.CepTelefon</dd>
+    </dt>
+
+
+    <dt>
+        @Html.DisplayNameFor(x => x.Kisi.IsTelefon)
+    <dd>@Model.Kisi.IsTelefon</dd>
+    </dt>
+
+
+    <dt>
+        @Html.DisplayNameFor(x => x.Kisi.Email)
+    <dd>@Model.Kisi.Email</dd>
+    </dt>
+
+
+    <dt>
+        @Html.DisplayNameFor(x => x.Kisi.Adres)
+    <dd>@Model.Kisi.Adres</dd>
+    </dt>
+
+
+    <dt>
+        @Html.DisplayNameFor(x => x.Kisi.SehirId)
+    <dd>@Model.Kisi.Sehir.SehirAdi</dd>
+    </dt>
+
+
+
+
+</dl>
+
+
+

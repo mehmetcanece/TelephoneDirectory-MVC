@@ -1,0 +1,41 @@
+﻿@model MvcRehber1.Models.Entitites.Sehir
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiiniz?</h3>
+<div>
+    <h4>Sehir</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlakaKodu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlakaKodu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye geri dön.", "Index")
+        </div>
+    }
+</div>
